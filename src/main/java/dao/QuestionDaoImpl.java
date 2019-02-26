@@ -15,9 +15,15 @@ import java.util.Objects;
 
 public class QuestionDaoImpl implements QuestionDao {
 
+    private final String fileName;
+
+    public QuestionDaoImpl(String fileName) {
+        this.fileName = fileName;
+    }
+
     public List<Question> getAll() {
         ClassLoader classLoader = getClass().getClassLoader();
-        String file = Objects.requireNonNull(classLoader.getResource("QA.csv")).getFile();
+        String file = Objects.requireNonNull(classLoader.getResource(fileName)).getFile();
         try {
             Reader reader = Files.newBufferedReader(Paths.get(file));
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
