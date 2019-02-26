@@ -24,22 +24,22 @@ public class QuestionDaoImpl implements QuestionDao {
     public List<Question> getAll() {
         ClassLoader classLoader = getClass().getClassLoader();
         String file = Objects.requireNonNull(classLoader.getResource(fileName)).getFile();
+        List<Question> questionList = new ArrayList<>();
         try {
             Reader reader = Files.newBufferedReader(Paths.get(file));
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
-            .withFirstRecordAsHeader()
-            .withIgnoreHeaderCase()
-            .withTrim());
+                    .withFirstRecordAsHeader()
+                    .withIgnoreHeaderCase()
+                    .withTrim());
 
-            for (CSVRecord csvRecord:
-                 csvParser) {
+            for (CSVRecord csvRecord :
+                    csvParser) {
                 String questionString = csvRecord.get("Question");
-                List<Question> questionList = new ArrayList<>();
-                Question question = new Question(questionString);
+                String questionId = csvRecord.get("№");
+                Question question = new Question(questionId, questionString);
                 questionList.add(question);
-                return questionList;
-
             }
+            return questionList;
         } catch (IOException e) {
             e.printStackTrace();
         }
