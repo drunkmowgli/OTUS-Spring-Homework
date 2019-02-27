@@ -17,4 +17,12 @@
         <constructor-arg name="questionDao" ref="questionDao"/>
     </bean>
 
+    <bean id="answerDao" class="dao.AnswerDaoImpl">
+        <constructor-arg value="Answers.csv"/>
+    </bean>
+
+    <bean id="answerService" class="service.AnswerServiceImpl">
+        <constructor-arg name="answerDao" ref="answerDao"/>
+    </bean>
+
 </beans>
