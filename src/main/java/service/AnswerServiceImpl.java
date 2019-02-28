@@ -2,7 +2,6 @@ package service;
 
 import dao.AnswerDao;
 import domain.Answer;
-import domain.Question;
 
 import java.util.List;
 
@@ -16,6 +15,13 @@ public class AnswerServiceImpl implements AnswerService {
 
     public List<Answer> getAll() {
         return answerDao.getAll();
+    }
+
+
+    public boolean compareAnswer(String personAnswer, Answer answer) {
+
+        return personAnswer.equalsIgnoreCase(answer.getAnswer());
+
     }
 
 }

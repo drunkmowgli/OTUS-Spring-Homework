@@ -28,10 +28,12 @@ public class Main {
                     questionList) {
                 System.out.println(question.getQuestion());
                 String personAnswer = inputScanner.nextLine();
+                Answer correctAnswer = answerList.get(Integer.parseInt(question.getId()));
 
-                if (personAnswer.equalsIgnoreCase(answerList.get(Integer.parseInt(question.getId())).getAnswer())) {
+                if (answerService.compareAnswer(personAnswer, correctAnswer)) {
                     count = count + 1;
                 }
+
             }
 
             System.out.println(String.format("Твой результат %s/%s", count, questionList.size()));

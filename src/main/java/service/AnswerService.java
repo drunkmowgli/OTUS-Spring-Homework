@@ -8,4 +8,6 @@ public interface AnswerService {
 
     List<Answer> getAll();
 
+    boolean compareAnswer(String personAnswer, Answer answer);
+
 }
