@@ -2,6 +2,7 @@ package service;
 
 import dao.AnswerDao;
 import dao.AnswerDaoImpl;
+
 import domain.Answer;
 import org.junit.Test;
 
@@ -29,9 +30,15 @@ public class AnswerServiceImplTest {
     }
 
     @Test
-    public void compareAnswer() {
+    public void getTrueAfterCompareAnswer() {
+        String questionId = "0";
         String personAnswer = "иЗя";
-        Answer answer = new Answer("1", "Изя");
-        assertTrue(personAnswer.equalsIgnoreCase(answer.getAnswer()));
+        AnswerDao answerDao = mock(AnswerDaoImpl.class);
+        when(answerDao.getAll()).thenReturn(Collections.singletonList(
+                new Answer("0", "Изя")
+        ));
+        AnswerService answerService = new AnswerServiceImpl(answerDao);
+        assertTrue(answerService.compareAnswer(questionId, personAnswer));
+
     }
 }

@@ -18,9 +18,11 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
 
-    public boolean compareAnswer(String personAnswer, Answer answer) {
+    public boolean compareAnswer(String questionId, String personAnswer) {
 
-        return personAnswer.equalsIgnoreCase(answer.getAnswer());
+        String correctAnswer = answerDao.getAll().get(Integer.parseInt(questionId)).getAnswer();
+
+        return personAnswer.equalsIgnoreCase(correctAnswer);
 
     }
 
