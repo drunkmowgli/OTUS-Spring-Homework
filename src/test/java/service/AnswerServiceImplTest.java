@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 public class AnswerServiceImplTest {
 
     @Test
-    public void whenGetAllShouldReturnOneItem() {
+    public void getAll() {
 
         AnswerDao answerDao = mock(AnswerDaoImpl.class);
         when(answerDao.getAll()).thenReturn(Collections.singletonList(
@@ -28,4 +28,10 @@ public class AnswerServiceImplTest {
 
     }
 
+    @Test
+    public void compareAnswer() {
+        String personAnswer = "иЗя";
+        Answer answer = new Answer("1", "Изя");
+        assertTrue(personAnswer.equalsIgnoreCase(answer.getAnswer()));
+    }
 }
