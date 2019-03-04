@@ -13,7 +13,7 @@
         <constructor-arg value="Questions.csv"/>
     </bean>
 
-    <bean id="questionService" class="service.QuesstionServiceImpl">
+    <bean id="questionService" class="service.QuestionServiceImpl">
         <constructor-arg name="questionDao" ref="questionDao"/>
     </bean>
 
@@ -23,6 +23,10 @@
 
     <bean id="answerService" class="service.AnswerServiceImpl">
         <constructor-arg name="answerDao" ref="answerDao"/>
+    </bean>
+
+    <bean id="examService" class="service.ExamServiceImpl">
+        <constructor-arg name="answerService" ref="answerService"/>
     </bean>
 
 </beans>

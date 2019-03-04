@@ -12,7 +12,6 @@ public class Main {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
         QuestionService questionService = context.getBean(QuestionService.class);
         List<Question> questionList = questionService.getAll();
-//        AnswerService answerService = context.getBean(AnswerService.class);
         Scanner inputScanner = new Scanner(System.in);
 
         System.out.println("Привет, хочешь сыграть со мной в игру?");
