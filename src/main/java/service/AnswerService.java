@@ -4,10 +4,28 @@ import domain.Answer;
 
 import java.util.List;
 
+/**
+ * @author Yuriy Maslov
+ */
+
 public interface AnswerService {
 
+    /**
+     * Returns the List of Answers.
+     *
+     * @return the List of Answers
+     */
     List<Answer> getAll();
 
-    boolean compareAnswer(String questionId, String personAnswer);
+    /**
+     * Returns <code>true</code> if the person's answer is a correct answer.
+     *
+     * @param questionId   id of the question
+     * @param personAnswer person's answer
+     * @return <code>true</code> if the person's answer is a correct answer;
+     * <code>false</code> otherwise
+     */
+
+    boolean isCorrectAnswer(String questionId, String personAnswer);
 
 }

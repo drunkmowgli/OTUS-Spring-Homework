@@ -18,7 +18,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
 
-    public boolean compareAnswer(String questionId, String personAnswer) {
+    public boolean isCorrectAnswer(String questionId, String personAnswer) {
 
         String correctAnswer = answerDao.getAll().get(Integer.parseInt(questionId)).getAnswer();
 

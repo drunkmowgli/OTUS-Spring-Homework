@@ -20,17 +20,17 @@ public class AnswerServiceImplTest {
 
         AnswerDao answerDao = mock(AnswerDaoImpl.class);
         when(answerDao.getAll()).thenReturn(Collections.singletonList(
-                new Answer("1", "988")));
+                new Answer("0", "988")));
         AnswerService answerService = new AnswerServiceImpl(answerDao);
         List<Answer> answerList = answerService.getAll();
         assertEquals(1, answerList.size());
-        assertEquals("1", answerList.get(0).getId());
+        assertEquals("0", answerList.get(0).getId());
         assertEquals("988", answerList.get(0).getAnswer());
 
     }
 
     @Test
-    public void getTrueAfterCompareAnswer() {
+    public void isCorrectAnswer() {
         String questionId = "0";
         String personAnswer = "иЗя";
         AnswerDao answerDao = mock(AnswerDaoImpl.class);
@@ -38,7 +38,7 @@ public class AnswerServiceImplTest {
                 new Answer("0", "Изя")
         ));
         AnswerService answerService = new AnswerServiceImpl(answerDao);
-        assertTrue(answerService.compareAnswer(questionId, personAnswer));
+        assertTrue(answerService.isCorrectAnswer(questionId, personAnswer));
 
     }
 }

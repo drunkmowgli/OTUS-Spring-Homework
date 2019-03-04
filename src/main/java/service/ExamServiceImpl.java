@@ -16,7 +16,7 @@ public class ExamServiceImpl implements ExamService {
 
         for (Map.Entry<String, String> entry : personAnswerMap.entrySet()) {
 
-            if (answerService.compareAnswer(entry.getKey(), entry.getValue())) {
+            if (answerService.isCorrectAnswer(entry.getKey(), entry.getValue())) {
                 count++;
             }
 

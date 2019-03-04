@@ -15,7 +15,7 @@ public class AnswerDaoImplTest {
         AnswerDao answerDao = new AnswerDaoImpl(fileName);
         List<Answer> answerList = answerDao.getAll();
         assertEquals(2, answerList.size());
-        assertEquals("1", answerList.get(0).getId());
+        assertEquals("0", answerList.get(0).getId());
         assertEquals("988", answerList.get(0).getAnswer());
     }
 }

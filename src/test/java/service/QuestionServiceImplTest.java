@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class QuesstionServiceImplTest {
+public class QuestionServiceImplTest {
 
     @Test
     public void getAll() {
@@ -20,7 +20,7 @@ public class QuesstionServiceImplTest {
         QuestionDao questionDao = mock(QuestionDaoImpl.class);
         when(questionDao.getAll()).thenReturn(Collections.singletonList(
                 new Question("1","Назовите год крещения Руси")));
-        QuesstionService questionService = new QuesstionServiceImpl(questionDao);
+        QuestionService questionService = new QuestionServiceImpl(questionDao);
         List<Question> questionList = questionService.getAll();
         assertEquals(1, questionList.size());
         assertEquals("1", questionList.get(0).getId());

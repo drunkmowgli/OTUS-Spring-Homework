@@ -16,7 +16,7 @@ public class QuestionDaoImplTest {
         QuestionDao questionDao = new QuestionDaoImpl(fileName);
         List<Question> questionList = questionDao.getAll();
         assertEquals(2, questionList.size());
-        assertEquals("1", questionList.get(0).getId());
+        assertEquals("0", questionList.get(0).getId());
         assertEquals("Назовите год крещения Руси", questionList.get(0).getQuestion());
     }
 }
