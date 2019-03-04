@@ -5,11 +5,11 @@ import domain.Question;
 
 import java.util.List;
 
-public class QuesstionServiceImpl implements QuesstionService {
+public class QuestionServiceImpl implements QuestionService {
 
     private final QuestionDao questionDao;
 
-    public QuesstionServiceImpl(QuestionDao questionDao) {
+    public QuestionServiceImpl(QuestionDao questionDao) {
         this.questionDao = questionDao;
     }
 

@@ -4,7 +4,7 @@ import domain.Question;
 
 import java.util.List;
 
-public interface QuesstionService {
+public interface QuestionService {
 
     List<Question> getAll();
 

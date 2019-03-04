@@ -1,40 +1,36 @@
-import domain.Answer;
 import domain.Question;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import service.AnswerService;
-import service.PersonService;
-import service.QuesstionService;
+import service.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
-        QuesstionService questionService = context.getBean(QuesstionService.class);
+        QuestionService questionService = context.getBean(QuestionService.class);
         List<Question> questionList = questionService.getAll();
-        AnswerService answerService = context.getBean(AnswerService.class);
-        List<Answer> answerList = answerService.getAll();
+//        AnswerService answerService = context.getBean(AnswerService.class);
         Scanner inputScanner = new Scanner(System.in);
 
         System.out.println("Привет, хочешь сыграть со мной в игру?");
+        Map<String, String> personAnswerMap = new HashMap<>();
         if (inputScanner.nextLine().equalsIgnoreCase("Да")) {
+            ExamService examService = context.getBean(ExamService.class);
             System.out.println("Назови свое имя");
             String name = inputScanner.nextLine();
             PersonService personService = context.getBean(PersonService.class);
             System.out.println("Игра начинается... " + personService.getByName(name).getName());
-            int count = 0;
             for (Question question :
                     questionList) {
                 System.out.println(question.getQuestion());
                 String personAnswer = inputScanner.nextLine();
-
-                if (answerService.compareAnswer(question.getId(), personAnswer)) {
-                    count++;
-                }
-
-
+                personAnswerMap.put(question.getId(), personAnswer);
             }
+
+            int count = examService.countCorrectAnswer(personAnswerMap);
 
             System.out.println(String.format("Твой результат %s/%s", count, questionList.size()));
 
