@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="personDao" class="dao.PersonDaoImpl"/>
+
+    <bean id="personService" class="service.PersonServiceImpl">
+        <constructor-arg name="personDao" ref="personDao"/>
+    </bean>
+
+    <bean id="questionDao" class="dao.QuestionDaoImpl">
+        <constructor-arg value="Questions.csv"/>
+    </bean>
+
+    <bean id="questionService" class="service.QuestionServiceImpl">
+        <constructor-arg name="questionDao" ref="questionDao"/>
+        <constructor-arg name="answerService" ref="answerService"/>
+    </bean>
+
+    <bean id="answerDao" class="dao.AnswerDaoImpl">
+        <constructor-arg value="Answers.csv"/>
+    </bean>
+
+    <bean id="answerService" class="service.AnswerServiceImpl">
+        <constructor-arg name="answerDao" ref="answerDao"/>
+    </bean>
+
+</beans>
