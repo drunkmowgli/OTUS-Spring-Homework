@@ -17,6 +17,13 @@ public interface QuestionService {
      */
     List<Question> getAll();
 
+    /**
+     * Returns <int>count</int> of correct person's answers.
+     *
+     * @param personAnswerMap - Person's answers
+     * @return <int>count</int> of correct person's answers
+     */
+
     int countCorrectAnswer(Map<String, String> personAnswerMap);
 
 }
