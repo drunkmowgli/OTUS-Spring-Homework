@@ -18,9 +18,10 @@ public class QuestionServiceImplTest {
     public void getAll() {
 
         QuestionDao questionDao = mock(QuestionDaoImpl.class);
+        AnswerService answerService = mock(AnswerServiceImpl.class);
         when(questionDao.getAll()).thenReturn(Collections.singletonList(
                 new Question("1","Назовите год крещения Руси")));
-        QuestionService questionService = new QuestionServiceImpl(questionDao);
+        QuestionService questionService = new QuestionServiceImpl(questionDao, answerService);
         List<Question> questionList = questionService.getAll();
         assertEquals(1, questionList.size());
         assertEquals("1", questionList.get(0).getId());

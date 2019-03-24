@@ -17,7 +17,6 @@ public class Main {
         System.out.println("Привет, хочешь сыграть со мной в игру?");
         Map<String, String> personAnswerMap = new HashMap<>();
         if (inputScanner.nextLine().equalsIgnoreCase("Да")) {
-            ExamService examService = context.getBean(ExamService.class);
             System.out.println("Назови свое имя");
             String name = inputScanner.nextLine();
             PersonService personService = context.getBean(PersonService.class);
@@ -29,7 +28,7 @@ public class Main {
                 personAnswerMap.put(question.getId(), personAnswer);
             }
 
-            int count = examService.countCorrectAnswer(personAnswerMap);
+            int count = questionService.countCorrectAnswer(personAnswerMap);
 
             System.out.println(String.format("Твой результат %s/%s", count, questionList.size()));
 
