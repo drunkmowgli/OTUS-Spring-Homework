@@ -1,15 +1,22 @@
 import domain.Question;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import service.*;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import service.PersonService;
+import service.QuestionService;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+@Configuration
+@ComponentScan(basePackages = "config")
 public class Main {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(Main.class);
+        context.refresh();
         QuestionService questionService = context.getBean(QuestionService.class);
         List<Question> questionList = questionService.getAll();
         Scanner inputScanner = new Scanner(System.in);
