@@ -1,7 +1,7 @@
-package service;
+package org.asm.labs.service;
 
-import dao.PersonDao;
-import domain.Person;
+import org.asm.labs.dao.PersonDao;
+import org.asm.labs.domain.Person;
 
 public class PersonServiceImpl implements PersonService {
 

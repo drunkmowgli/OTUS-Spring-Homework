@@ -1,9 +1,11 @@
-package dao;
+package org.asm.labs.dao;
 
-import domain.Question;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.asm.labs.domain.Question;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -13,11 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Repository("questionDao")
 public class QuestionDaoImpl implements QuestionDao {
 
     private final String fileName;
 
-    public QuestionDaoImpl(String fileName) {
+    public QuestionDaoImpl(@Value("Questions.csv") String fileName) {
         this.fileName = fileName;
     }
 

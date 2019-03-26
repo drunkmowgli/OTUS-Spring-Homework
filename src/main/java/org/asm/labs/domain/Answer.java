@@ -1,4 +1,4 @@
-package domain;
+package org.asm.labs.domain;
 
 /***
  * The <code>Answer</code> class contains several useful class field

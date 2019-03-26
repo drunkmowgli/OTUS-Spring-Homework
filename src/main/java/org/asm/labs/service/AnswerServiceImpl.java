@@ -1,7 +1,7 @@
-package service;
+package org.asm.labs.service;
 
-import dao.AnswerDao;
-import domain.Answer;
+import org.asm.labs.dao.AnswerDao;
+import org.asm.labs.domain.Answer;
 
 import java.util.List;
 

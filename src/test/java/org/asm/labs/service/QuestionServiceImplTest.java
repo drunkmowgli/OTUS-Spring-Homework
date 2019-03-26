@@ -1,14 +1,14 @@
-package service;
+package org.asm.labs.service;
 
-import dao.QuestionDao;
-import dao.QuestionDaoImpl;
-import domain.Question;
-import org.junit.Test;
+import org.asm.labs.dao.QuestionDao;
+import org.asm.labs.dao.QuestionDaoImpl;
+import org.asm.labs.domain.Question;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

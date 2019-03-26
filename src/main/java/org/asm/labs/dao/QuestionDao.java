@@ -1,6 +1,6 @@
-package dao;
+package org.asm.labs.dao;
 
-import domain.Question;
+import org.asm.labs.domain.Question;
 
 import java.util.List;
 

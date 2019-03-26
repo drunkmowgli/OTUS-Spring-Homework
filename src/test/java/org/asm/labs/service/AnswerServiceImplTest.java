@@ -1,15 +1,15 @@
-package service;
+package org.asm.labs.service;
 
-import dao.AnswerDao;
-import dao.AnswerDaoImpl;
-import domain.Answer;
-import org.junit.Test;
+import org.asm.labs.dao.AnswerDao;
+import org.asm.labs.dao.AnswerDaoImpl;
+import org.asm.labs.domain.Answer;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

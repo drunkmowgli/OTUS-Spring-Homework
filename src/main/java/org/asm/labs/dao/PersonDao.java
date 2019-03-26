@@ -1,6 +1,6 @@
-package dao;
+package org.asm.labs.dao;
 
-import domain.Person;
+import org.asm.labs.domain.Person;
 
 /**
  * @author Yuriy Maslov

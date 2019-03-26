@@ -1,7 +1,7 @@
-package service;
+package org.asm.labs.service;
 
-import dao.QuestionDao;
-import domain.Question;
+import org.asm.labs.dao.QuestionDao;
+import org.asm.labs.domain.Question;
 
 import java.util.List;
 import java.util.Map;

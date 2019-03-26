@@ -1,6 +1,6 @@
-package service;
+package org.asm.labs.service;
 
-import domain.Answer;
+import org.asm.labs.domain.Answer;
 
 import java.util.List;
 

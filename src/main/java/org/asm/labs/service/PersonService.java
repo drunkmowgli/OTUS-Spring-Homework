@@ -1,6 +1,6 @@
-package service;
+package org.asm.labs.service;
 
-import domain.Person;
+import org.asm.labs.domain.Person;
 
 /**
  * @author Yuriy Maslov
