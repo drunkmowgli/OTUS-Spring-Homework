@@ -2,11 +2,13 @@ package org.asm.labs.dao;
 
 import org.asm.labs.domain.Answer;
 import org.junit.jupiter.api.Test;
+import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@TestPropertySource("classpath:test.properties")
 public class AnswerDaoImplTest {
 
     @Test
