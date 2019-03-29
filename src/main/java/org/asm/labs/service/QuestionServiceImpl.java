@@ -4,6 +4,7 @@ import org.asm.labs.dao.QuestionDao;
 import org.asm.labs.domain.Question;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class QuestionServiceImpl implements QuestionService {
@@ -17,8 +18,8 @@ public class QuestionServiceImpl implements QuestionService {
         this.answerService = answerService;
     }
 
-    public List<Question> getAll() {
-        return questionDao.getAll();
+    public List<Question> getAll(Locale locale) {
+        return questionDao.getAll(locale);
     }
 
     public int countCorrectAnswer(Map<String, String> personAnswerMap) {

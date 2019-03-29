@@ -3,6 +3,7 @@ package org.asm.labs.service;
 import org.asm.labs.domain.Question;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -15,7 +16,7 @@ public interface QuestionService {
      *
      * @return List of Questions
      */
-    List<Question> getAll();
+    List<Question> getAll(Locale locale);
 
     /**
      * Returns <int>count</int> of correct person's answers.

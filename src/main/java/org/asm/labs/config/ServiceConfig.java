@@ -24,4 +24,9 @@ public class ServiceConfig {
     public PersonService personService(PersonDao personDao) {
         return new PersonServiceImpl(personDao);
     }
+
+    @Bean
+    public UserLocaleService userLocaleService() {
+        return new UserLocaleServiceImpl();
+    }
 }

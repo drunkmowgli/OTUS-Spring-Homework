@@ -14,19 +14,31 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 @PropertySource("classpath:application.properties")
 @Repository("questionDao")
 public class QuestionDaoImpl implements QuestionDao {
 
-    private final String fileName;
+    private final String fileNameEN;
 
-    public QuestionDaoImpl(@Value("${questions.filename}") String fileName) {
-        this.fileName = fileName;
+    private final String fileNameRU;
+
+    public QuestionDaoImpl(@Value("${EN.questions.filename}") String fileNameEN,
+                           @Value("${RU.questions.filename}") String fileNameRU) {
+        this.fileNameEN = fileNameEN;
+        this.fileNameRU = fileNameRU;
     }
 
-    public List<Question> getAll() {
+    public List<Question> getAll(Locale locale) {
+        String fileName;
+        if (locale.getDefault().equals(Locale.ENGLISH)) {
+            System.out.println(locale.getDefault());
+            fileName = fileNameEN;
+        } else {
+            fileName = fileNameRU;
+        }
         ClassLoader classLoader = getClass().getClassLoader();
         String file = Objects.requireNonNull(classLoader.getResource(fileName)).getFile();
         List<Question> questionList = new ArrayList<>();
