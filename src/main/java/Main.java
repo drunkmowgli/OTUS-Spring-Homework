@@ -39,7 +39,6 @@ public class Main {
 
         int count = questionService.countCorrectAnswer(personAnswerMap);
 
-//        System.out.println(String.format("Твой результат %s/%s", count, questionList.size()));
         System.out.println(messageSource.getMessage("result", new Integer[]{count}, Arrays.toString(new Integer[]{questionList.size()}), locale));
 
     }
