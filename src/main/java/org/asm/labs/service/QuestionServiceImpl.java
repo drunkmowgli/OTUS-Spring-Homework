@@ -2,17 +2,21 @@ package org.asm.labs.service;
 
 import org.asm.labs.dao.QuestionDao;
 import org.asm.labs.domain.Question;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+@Service
 public class QuestionServiceImpl implements QuestionService {
 
     private final QuestionDao questionDao;
 
     private final AnswerService answerService;
 
+    @Autowired
     public QuestionServiceImpl(QuestionDao questionDao, AnswerService answerService) {
         this.questionDao = questionDao;
         this.answerService = answerService;
