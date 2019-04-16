@@ -1,4 +1,4 @@
 files:
-  ruQuestions: QuestionsRU.csv
-  enQuestions: QuestionsEN.csv
+  en-questions: QuestionsEN.csv
+  ru-questions: QuestionsRU.csv
   answers: Answers.csv

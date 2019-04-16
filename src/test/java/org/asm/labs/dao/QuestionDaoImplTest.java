@@ -1,20 +1,31 @@
 package org.asm.labs.dao;
 
+import org.asm.labs.config.YamlProperties;
 import org.asm.labs.domain.Question;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 
 import java.util.List;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SpringBootTest
+@TestPropertySource(locations = "classpath:application.yml")
+@EnableConfigurationProperties(YamlProperties.class)
 public class QuestionDaoImplTest {
+
+    @Autowired
+    YamlProperties yamlProperties;
+
+    @Autowired
+    QuestionDao questionDao;
 
     @Test
     public void getAll() {
-        String fileNameEN = "QuestionsTestEN.csv";
-        String fileNameRU = "QuestionsTestRU.csv";
-        QuestionDao questionDao = new QuestionDaoImpl(fileNameEN, fileNameRU);
         Locale locale = Locale.getDefault();
         List<Question> questionList = questionDao.getAll(locale);
         assertEquals(2, questionList.size());

@@ -3,14 +3,27 @@ package org.asm.labs.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * This class describe application's files configuration (file name).
+ */
+
 @Component
 @ConfigurationProperties(prefix = "files")
-public class YamlFileProps {
+public class YamlProperties {
 
+    /**
+     * Name of file with questions on Russian Language
+     */
     private String ruQuestions;
 
+    /**
+     * Name of file with questions on English Language
+     */
     private String enQuestions;
 
+    /**
+     * Name of file with answers
+     */
     private String answers;
 
     public String getRuQuestions() {

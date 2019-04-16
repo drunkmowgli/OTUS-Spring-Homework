@@ -3,6 +3,7 @@ package org.asm.labs.dao;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.asm.labs.config.YamlProperties;
 import org.asm.labs.domain.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,8 +23,8 @@ public class AnswerDaoImpl implements AnswerDao {
     private String answers;
 
     @Autowired
-    public AnswerDaoImpl(@Value("${files.answers}") String answers) {
-        this.answers = answers;
+    public AnswerDaoImpl(YamlProperties yamlProperties) {
+        this.answers = yamlProperties.getAnswers();
     }
 
     public List<Answer> getAll() {

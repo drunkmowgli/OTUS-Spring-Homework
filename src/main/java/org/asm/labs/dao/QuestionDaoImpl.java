@@ -3,8 +3,8 @@ package org.asm.labs.dao;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.asm.labs.config.YamlProperties;
 import org.asm.labs.domain.Question;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -23,10 +23,9 @@ public class QuestionDaoImpl implements QuestionDao {
 
     private final String fileNameRU;
 
-    public QuestionDaoImpl(@Value("${files.enQuestions}") String fileNameEN,
-                           @Value("${files.ruQuestions}") String fileNameRU) {
-        this.fileNameEN = fileNameEN;
-        this.fileNameRU = fileNameRU;
+    public QuestionDaoImpl(YamlProperties yamlProperties) {
+        this.fileNameEN = yamlProperties.getEnQuestions();
+        this.fileNameRU = yamlProperties.getRuQuestions();
     }
 
     public List<Question> getAll(Locale locale) {
