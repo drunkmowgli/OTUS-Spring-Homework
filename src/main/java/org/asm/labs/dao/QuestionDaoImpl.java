@@ -5,7 +5,6 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.asm.labs.domain.Question;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -17,7 +16,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-@PropertySource("classpath:application.properties")
 @Repository("questionDao")
 public class QuestionDaoImpl implements QuestionDao {
 
@@ -25,8 +23,8 @@ public class QuestionDaoImpl implements QuestionDao {
 
     private final String fileNameRU;
 
-    public QuestionDaoImpl(@Value("${EN.questions.filename}") String fileNameEN,
-                           @Value("${RU.questions.filename}") String fileNameRU) {
+    public QuestionDaoImpl(@Value("${files.enQuestions}") String fileNameEN,
+                           @Value("${files.ruQuestions}") String fileNameRU) {
         this.fileNameEN = fileNameEN;
         this.fileNameRU = fileNameRU;
     }

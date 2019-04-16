@@ -4,8 +4,8 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 import org.asm.labs.domain.Answer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
@@ -16,19 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@PropertySource("classpath:application.properties")
 @Repository("answerDao")
 public class AnswerDaoImpl implements AnswerDao {
 
-    private final String fileName;
+    private String answers;
 
-    public AnswerDaoImpl(@Value("${answers.filename}") String fileName) {
-        this.fileName = fileName;
+    @Autowired
+    public AnswerDaoImpl(@Value("${files.answers}") String answers) {
+        this.answers = answers;
     }
 
     public List<Answer> getAll() {
         ClassLoader classLoader = getClass().getClassLoader();
-        String file = Objects.requireNonNull(classLoader.getResource(fileName)).getFile();
+        String file = Objects.requireNonNull(classLoader.getResource(answers)).getFile();
         List<Answer> answerList = new ArrayList<>();
 
         try {

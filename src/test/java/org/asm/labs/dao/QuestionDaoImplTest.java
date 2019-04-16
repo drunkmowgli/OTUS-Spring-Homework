@@ -12,8 +12,8 @@ public class QuestionDaoImplTest {
 
     @Test
     public void getAll() {
-        String fileNameRU = "QuestionsTestRU.csv";
         String fileNameEN = "QuestionsTestEN.csv";
+        String fileNameRU = "QuestionsTestRU.csv";
         QuestionDao questionDao = new QuestionDaoImpl(fileNameEN, fileNameRU);
         Locale locale = Locale.getDefault();
         List<Question> questionList = questionDao.getAll(locale);
